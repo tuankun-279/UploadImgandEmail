@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "SendEmail";
+}
+
+<h2>SendEmail</h2>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+@using (Html.BeginForm("SendEmail","Home",FormMethod.Post))
+{    
+<p>
+    From: @Html.TextBox("sender")<br />
+    Pass: @Html.TextBox("pass")<br />
+    Display Name: @Html.TextBox("disName")<br />
+    Receiver: @Html.TextBox("receiver")<br />
+    SubTitle: @Html.TextBox("subject")<br />
+    Body: @Html.TextArea("message",new { @id = "message" })<br />
+    <script type="text/javascript">
+        CKEDITOR.replace('message');
+    </script>
+    <input type="submit" value="Send" />
+</p>
+}
+@ViewBag.Send
